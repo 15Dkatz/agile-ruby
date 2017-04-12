@@ -42,6 +42,18 @@ class Bicycle
   end
 end
 
+class Parts
+  attr_reader :parts
+
+  def initialize(input)
+    @parts = input
+  end
+
+  def spares
+    parts.select{ |part| part.needs_spare }
+  end
+end
+
 class Part
   attr_reader :name, :description, :needs_spare
 
@@ -49,18 +61,6 @@ class Part
     @name        = args[:name]
     @description = args[:description]
     @needs_spare = args.fetch(:needs_spare, true)
-  end
-end
-
-class Parts
-  attr_reader :parts
-
-  def initialize(parts)
-    @parts = parts
-  end
-
-  def spares
-    parts.select {|part| part.needs_spare}
   end
 end
 
@@ -101,18 +101,20 @@ class MountainBikeParts < Parts
 end
 
 
-chain = Parts.new(name: 'chain', description: '10-speed')
+chain = Part.new(name: 'chain', description: '10-speed')
 road_tire = Part.new(name: 'tire_dize', description: '23')
 tape = Part.new(name: 'tape_color', description: 'red')
 
-mountain_bike = Bicycle.new(
+road_bike = Bicycle.new(
   size: 'L',
-  parts: Parts.new([chain])
+  parts: Parts.new([chain, road_tire, tape])
 )
 
-puts mountain_bike.parts
+# puts tape.needs_spare
 
-#
+puts road_bike.spares
+
+
 # road_bike = Bicycle.new(
 #   size: 'L',
 #   parts: RoadBikeParts.new(tape_color: 'red')
