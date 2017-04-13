@@ -99,20 +99,20 @@ class MountainBikeParts < Parts
     '2.1'
   end
 end
+# TESTING / SCRATCH:
 
-
-chain = Part.new(name: 'chain', description: '10-speed')
-road_tire = Part.new(name: 'tire_dize', description: '23')
-tape = Part.new(name: 'tape_color', description: 'red')
-
-road_bike = Bicycle.new(
-  size: 'L',
-  parts: Parts.new([chain, road_tire, tape])
-)
+# chain = Part.new(name: 'chain', description: '10-speed')
+# road_tire = Part.new(name: 'tire_dize', description: '23')
+# tape = Part.new(name: 'tape_color', description: 'red')
+#
+# road_bike = Bicycle.new(
+#   size: 'L',
+#   parts: Parts.new([chain, road_tire, tape])
+# )
 
 # puts tape.needs_spare
 
-puts road_bike.spares
+# puts road_bike.spares
 
 
 # road_bike = Bicycle.new(

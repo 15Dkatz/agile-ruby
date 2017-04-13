@@ -34,8 +34,6 @@ module GearWrapper
   end
 end
 
-
-
 class Wheel
   attr_reader :rim, :tire
 
@@ -56,6 +54,6 @@ end
 gear = GearWrapper.gear(
     :chainring => 52,
     :cog       => 11,
-    :wheel     => Wheel.new(26, 1.5)).gear_inches
+    :wheel     => Wheel.new(26, 1.5))
 
-puts gear
+# puts gear.diameter
